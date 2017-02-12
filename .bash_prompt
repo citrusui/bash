@@ -3,34 +3,34 @@
 # See COLORS.md for further explanation
 
 if ls --color > /dev/null 2>&1; then
-  colorflag="--color" # GNU syntax
+  export colorflag="--color" # GNU syntax
   export LS_COLORS="di=1;36:ln=1;32:so=37:pi=1;31;40:ex=35:bd=37:cd=37:su=37:sg=37:tw=32:ow=32"
 else # BSD syntax
-  colorflag="-G"
+  export colorflag="-G"
   export CLICOLOR=1
   export LSCOLORS="GxCxhxBafxhxhxhxhxcxcx"
 fi
 
-alias ls="ls ${colorflag}" # Enable colors
+alias ls='ls ${colorflag}' # Enable colors
 alias sh="bash" # Enforce bash
 alias sudo="sudo " # For use with aliases
 
 prompt() {
   local s="";
   local branchName="";
-  if [ $(git rev-parse --is-inside-work-tree &>/dev/null; echo "${?}") == "0" ]; then # Check for a valid Git repo
+  if [ "$(git rev-parse --is-inside-work-tree 2> /dev/null)" == "true" ]; then # Check for a valid Git repo
     if [ "$(git rev-parse --is-inside-git-dir 2> /dev/null)" == "false" ]; then # Only run if we're outside .git
-      git update-index --really-refresh -q &>/dev/null; # Update Git index
-      if ! $(git diff --quiet --ignore-submodules --cached); then
+      git update-index --really-refresh -q &> /dev/null; # Update Git index
+      if ! git diff --quiet --ignore-submodules --cached; then
         s+="+"; # Uncommited changes
       fi;
-      if ! $(git diff-files --quiet --ignore-submodules --); then
+      if ! git diff-files --quiet --ignore-submodules --; then
         s+="!"; # Unstaged changes
       fi;
       if [ -n "$(git ls-files --others --exclude-standard)" ]; then
         s+="?"; # Untracked files
       fi;
-      if $(git rev-parse --verify refs/stash &>/dev/null); then
+      if git rev-parse --verify refs/stash &>/dev/null; then
         s+="$"; # Stashed files
       fi;
     fi;
@@ -73,13 +73,13 @@ else # Full 24-bit color support
 fi
 
 if [[ "${USER}" == "root" ]]; then
-  userStyle="${red}"; # Root users are red
+  userStyle="${red}";
 else
-  userStyle="${violet}"; # Violet is for you
+  userStyle="${violet}";
 fi;
 if [[ "${SSH_TTY}" ]]; then
-  userStyle="${yellow}"; # SSH is pretty neat
-fi; # `apt-get moo`
+  userStyle="${yellow}";
+fi;
 
 # Apply prompt
 
