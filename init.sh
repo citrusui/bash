@@ -11,7 +11,8 @@ function checkTools() {
 }
 
 function pullSource() {
-  rsync --exclude ".git" --exclude ".travis.yml" --exclude "init.sh" --exclude "*.md" -avh --no-perms . ~; # TODO: suppress output with -s and report if files were untouched
+  rsync --exclude ".git" --exclude ".travis.yml" --exclude "*.md" --exclude "*.sh" -avh --no-perms . ~; # TODO: suppress output with -s and report if files were untouched
+  source ~/.bashrc
 }
 
 checkTools
@@ -25,9 +26,11 @@ if [ "$1" == "-y" ]; then
   pullSource
 else
   echo ""
-  read -p "This may overwrite your existing preferences. Continue? [Y/N] "
+  read -p "This may overwrite your existing preferences. Continue? [y/N] " REPLY
   echo ""
-  if [[ $REPLY =~ ^[Yy]$ ]]; then
+  if [[ "$REPLY" =~ ^([yY][eE][sS]|[yY])+$ ]]; then
     pullSource
+  else
+    echo "Aborted."
   fi
 fi

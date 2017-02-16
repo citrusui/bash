@@ -2,7 +2,7 @@
 
 # Export aliases, prompt, and extras
 
-for file in ~/.{aliases,bash_prompt,extra}; do
+for file in ~/.{aliases,bash_prompt,extra,functions}; do
   [ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;

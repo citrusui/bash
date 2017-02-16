@@ -2,7 +2,7 @@
 
 # See COLORS.md for further explanation
 
-if ls --color > /dev/null 2>&1; then
+if ls --color &> /dev/null; then
   export colorflag="--color" # GNU syntax
   export LS_COLORS="di=1;36:ln=1;32:so=37:pi=1;31;40:ex=35:bd=37:cd=37:su=37:sg=37:tw=32:ow=32"
 else # BSD syntax
@@ -11,7 +11,8 @@ else # BSD syntax
   export LSCOLORS="GxCxhxBafxhxhxhxhxcxcx"
 fi
 
-alias ls='ls ${colorflag}' # Enable colors
+
+alias ls=\"ls ${colorflag}\" # Enable colors
 alias sh="bash" # Enforce bash
 alias sudo="sudo " # For use with aliases
 
@@ -30,7 +31,7 @@ prompt() {
       if [ -n "$(git ls-files --others --exclude-standard)" ]; then
         s+="?"; # Untracked files
       fi;
-      if git rev-parse --verify refs/stash &>/dev/null; then
+      if git rev-parse --verify refs/stash &> /dev/null; then
         s+="$"; # Stashed files
       fi;
     fi;
