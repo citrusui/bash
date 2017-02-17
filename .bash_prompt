@@ -12,7 +12,7 @@ else # BSD syntax
 fi
 
 
-alias ls=\"ls ${colorflag}\" # Enable colors
+alias ls="ls ${colorflag}" # Enable colors
 alias sh="bash" # Enforce bash
 alias sudo="sudo " # For use with aliases
 
