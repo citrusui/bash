@@ -1,2 +1,6 @@
+image: bash:latest
+
 run-bash:
- script: sudo bash ./init.sh -y
+ script:
+  - apk add --no-cache sudo
+  - sudo bash ./init.sh -y
