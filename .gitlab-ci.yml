@@ -2,5 +2,5 @@ image: bash:latest
 
 run-bash:
  script:
-  - apk add --no-cache sudo
+  - apk add git sudo --no-cache
   - sudo bash ./init.sh -y
