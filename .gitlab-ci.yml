@@ -1,0 +1,4 @@
+image: bash:latest
+
+run-bash:
+ script: ./init.sh -y
