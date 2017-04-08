@@ -11,8 +11,8 @@ function checkTools() {
 }
 
 function pullSource() {
-  rsync --exclude ".git" --exclude ".travis.yml" --exclude "*.md" --exclude "*.sh" -avh --no-perms . ~; # TODO: suppress output with -s and report if files were untouched
-  source ~/.bashrc
+  rsync --exclude ".git" --exclude "*.yml" --exclude "*.md" --exclude "*.sh" -avh --no-perms . $HOME; # TODO: suppress output with -s and report if files were untouched
+  source $HOME/.bashrc
 }
 
 checkTools
