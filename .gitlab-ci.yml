@@ -1,4 +1,4 @@
 image: bash:latest
 
 run-bash:
- script: ./init.sh -y
+ script: sudo bash ./init.sh -y
