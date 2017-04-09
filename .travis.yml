@@ -2,9 +2,7 @@ os:
  - linux
  - osx
 language: bash
-node_js:
- - stable
 script:
- - ./init.sh
+ - ./init.sh -y
 notifications:
   email: false
