@@ -11,7 +11,7 @@ function checkTools() {
 }
 
 function pullSource() {
-  rsync --exclude ".git" --exclude "*.yml" --exclude "*.md" --exclude "*.sh" -avh --no-perms . ~;
+  rsync --exclude ".git" --exclude "*.yml" --exclude "*.md" --exclude "*.sh" -avh . ~;
   source ~/.bashrc
 }
 
