@@ -1,8 +1,8 @@
 os:
  - linux
  - osx
-sudo: required
+language: bash
 script:
- - ./init.sh
+ - ./init.sh -y
 notifications:
   email: false
