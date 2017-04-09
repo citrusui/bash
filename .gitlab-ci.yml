@@ -3,4 +3,4 @@ image: bash:latest
 run-bash:
  script:
   - apk add git rsync sudo --no-cache
-  - sudo bash ./init.sh -y
+  - ./init.sh -y
