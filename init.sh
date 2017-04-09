@@ -2,8 +2,8 @@
 
 function checkTools() {
   if [ ! "$(which git)" ]; then
-    echo "Git is required." # TODO: install these automatically
-    echo "Please install them from your package manager."
+    echo "Git is required."
+    echo "Please install it from https://git-scm.com or your package manager."
     echo "If you are on macOS, run xcode-select --install."
     sleep 5;
     exit 1;
@@ -11,7 +11,7 @@ function checkTools() {
 }
 
 function pullSource() {
-  rsync --exclude ".git" --exclude "*.yml" --exclude "*.md" --exclude "*.sh" -avh --no-perms . ~; # TODO: suppress output with -s and report if files were untouched
+  rsync --exclude ".git" --exclude "*.yml" --exclude "*.md" --exclude "*.sh" -avh --no-perms . ~;
   source ~/.bashrc
 }
 
