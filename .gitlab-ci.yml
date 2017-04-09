@@ -3,4 +3,6 @@ image: bash:latest
 run-bash:
  script:
   - apk add git rsync sudo --no-cache
+  - git config user.email Doldrumcorp@null.net
+  - git config user.name "Doldrum Corp."
   - ./init.sh -y
