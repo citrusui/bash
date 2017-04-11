@@ -1,13 +1,17 @@
 #!/usr/bin/env bash
 
-# Export aliases, prompt, and extras
+# Export common Bash init files
 
-for file in ~/.{aliases,bash_prompt,extra,functions}; do
-  [ -r "$file" ] && [ -f "$file" ] && source "$file";
-done;
-unset file;
+for file in ~/.{aliases,bash_prompt,extra,functions,inputrc}; do
+  [ -r "$file" ] && [ -f "$file" ] && source "$file"
+done
+unset file
 
-shopt -s cdspell; # Autocorrect misspelled directories
-shopt -s dotglob; # Show files starting with a '.'
-shopt -s histappend; # Append command history rather than overwriting it
-shopt -s nocaseglob; # Ignore character casing
+# In order of appearance:
+
+# Autocorrect misspelled directories;
+# Check the window size after every command;
+# Append to command history rather than overwriting it;
+# Ignore character casing
+
+shopt -s cdspell checkwinsize histappend nocaseglob
