@@ -7,7 +7,6 @@ for file in ~/.{aliases,bash_prompt,extra,functions,inputrc}; do
 done
 unset file
 
-
 # Workaround for case-insensitive tab completion on macOS
 
 bind "set completion-ignore-case on"
