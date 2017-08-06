@@ -19,3 +19,9 @@ bind "set completion-ignore-case on"
 # Ignore character casing
 
 shopt -s cdspell checkwinsize histappend nocaseglob
+
+# Load nvm and its bash completions
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
