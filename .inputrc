@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 set completion-ignore-case on # Ignore character casing during autocompletion
-set show-all-if-ambiguous # List autocomplete matches when more than one possible completion exists
+set show-all-if-ambiguous on # List autocomplete matches when more than one possible completion exists
 
 # Allow the use of UTF-8 for input/output.
 
