@@ -77,10 +77,10 @@ if [[ "${USER}" == "root" ]]; then
   userStyle="${red}";
 else
   userStyle="${violet}";
-fi;
+fi
 if [[ "${SSH_TTY}" ]]; then
   userStyle="${yellow}";
-fi;
+fi
 
 # Apply prompt
 

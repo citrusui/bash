@@ -2,14 +2,17 @@
 
 # Export common Bash init files
 
-for file in ~/.{aliases,bash_prompt,extra,functions,inputrc}; do
+for file in ~/.{aliases,extra,functions,inputrc}; do
   [ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 unset file
 
-# Workaround for case-insensitive tab completion on macOS
+# Check if the current shell is interactive
+# This prevents a warning message from appearing on login complaining about $TERM not being set
 
-bind "set completion-ignore-case on"
+if [[ $- == *i* ]]; then
+  source .bash_prompt
+fi
 
 # In order of appearance:
 
