@@ -11,7 +11,7 @@ unset file
 # This prevents a warning message from appearing on login complaining about $TERM not being set
 
 if [[ $- == *i* ]]; then
-  source .bash_prompt
+  source ~/.bash_prompt
 fi
 
 # In order of appearance:
